@@ -1,8 +1,20 @@
+/**
+ * Calculate the mean (average) of an array of numeric values.
+ *
+ * @param {Array} array - An array of numeric values.
+ * @returns {number} The mean (average) of the values in the array.
+ */
 export const getMean = (array) => {
   let value = array.reduce((acc, curr) => acc + parseFloat(curr), 0);
   return value / array.length;
 };
 
+/**
+ * Calculate the mean (average) of an array of numeric values.
+ *
+ * @param {Array} array - An array of numeric values.
+ * @returns {number} The mean (average) of the values in the array.
+ */
 export const quickSort = (arr) => {
   if (arr.length <= 1) {
     return arr;
@@ -22,6 +34,13 @@ export const quickSort = (arr) => {
 
   return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 };
+
+/**
+ * Calculate the median of an array of values.
+ *
+ * @param {Array} array - An array of numeric values.
+ * @returns {number} The median of the values in the array.
+ */
 export const getMedian = (array) => {
   const sortedArray = quickSort(array);
   const length = sortedArray.length;
@@ -34,6 +53,12 @@ export const getMedian = (array) => {
   }
 };
 
+/**
+ * Calculate the mode of an array of values.
+ *
+ * @param {Array} array - An array of values.
+ * @returns {any} The mode (most frequent value) in the array.
+ */
 export const getMode = (array) => {
   let frequency = {};
   let highestVlaue = -Infinity;
@@ -51,6 +76,12 @@ export const getMode = (array) => {
   return result;
 };
 
+/**
+ * Calculate mean, median, and mode for an array of values.
+ *
+ * @param {Array} array - An array of numeric values.
+ * @returns {Object} An object containing Mean, Median, and Mode.
+ */
 export const calculateAll = (array) => {
   return {
     Mean: Number(getMean(array)).toFixed(3),
