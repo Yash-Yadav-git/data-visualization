@@ -1,31 +1,9 @@
-import { wineData } from "../constants/wine-Data";
-
-export const classWise = wineData.reduce(
-  (acc, curr) =>
-    acc[curr.Alcohol]
-      ? { ...acc, [curr.Alcohol]: [...acc[curr.Alcohol], { ...curr }] }
-      : { ...acc, [curr.Alcohol]: [{ ...curr }] },
-  {}
-);
-
-export const groupDataByClassAndProperty = (wineData, className, propertyName) => {
-  let returnObject = {};
-  wineData.forEach((item) => {
-    if (returnObject[item[className]]) {
-      returnObject[item[className]] = [...returnObject[item[className]], item[propertyName]]
-    } else {
-      returnObject[item[className]] = [item[propertyName]]
-    }
-  })
-  return returnObject;
-};
-
-function getMean(array) {
+export const getMean = (array) => {
   let value = array.reduce((acc, curr) => acc + parseFloat(curr), 0);
   return value / array.length;
-}
+};
 
-function quickSort(arr) {
+export const quickSort = (arr) => {
   if (arr.length <= 1) {
     return arr;
   }
@@ -43,8 +21,8 @@ function quickSort(arr) {
   }
 
   return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
-}
-function getMedian(array) {
+};
+export const getMedian = (array) => {
   const sortedArray = quickSort(array);
   const length = sortedArray.length;
   if (length % 2 !== 0) {
@@ -54,9 +32,9 @@ function getMedian(array) {
     const medianSecondValue = sortedArray[length / 2];
     return (medianFirstValue + medianSecondValue) / 2;
   }
-}
+};
 
-function getMode(array) {
+export const getMode = (array) => {
   let frequency = {};
   let highestVlaue = -Infinity;
   quickSort(array).forEach((value) => {
@@ -71,16 +49,4 @@ function getMode(array) {
     (x) => frequency[x] === highestVlaue
   );
   return result;
-}
-
-export const getEvaluatedValues = (groupedData) => {
-  let  groupedValues= {};
-  for (const key in groupedData) {
-    groupedValues[key] = {
-      mean: getMean(groupedData[key]).toFixed(3),
-      median: getMedian(groupedData[key]),
-      mode: getMode(groupedData[key]),
-    };
-  }
-  return groupedValues;
 };
