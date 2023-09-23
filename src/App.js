@@ -1,20 +1,30 @@
-import {
-  getEvaluatedValues,
-  classWise,
-  groupDataByClassAndProperty,
-  addGama,
-  getRequestedValue,
-} from "./utils/helperFunctions";
+import { getTableData } from "./utils/helperFunctions";
 import { wineData } from "./constants/wine-Data";
 import Table from "./components/Table";
+import { useTbaleData } from "./custom-hooks/useTableData";
 
 function App() {
-  const TableData1 = getRequestedValue(wineData, "Alcohol", "Flavanoids");
-  const TableData2 = getRequestedValue(wineData, "Alcohol", "Gamma");
+  const TableData1 = useTbaleData(wineData, "Alcohol", "Flavanoids");
+  const TableData2 = useTbaleData(wineData, "Alcohol", "Gamma");
+
+  const res1 = useTbaleData(wineData, "Alcohol", "Flavanoids");
+  console.log(TableData1, TableData2, res1)
   return (
     <div className="App">
-      <Table data={TableData1} />
-      <Table data={TableData2} />
+      {
+         TableData1 ?
+          (
+          
+            <Table data={TableData1} />
+          ): null
+      }
+      {
+        TableData2 ?
+          (
+          
+            <Table data={TableData2} />
+          ): null
+      }
     </div>
   );
 }

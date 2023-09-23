@@ -50,3 +50,11 @@ export const getMode = (array) => {
   );
   return result;
 };
+
+export const calculateAll = (array) => {
+  return {
+    Mean: Number(getMean(array)).toFixed(3),
+    Median: Number(getMedian(array)).toFixed(3),
+    Mode: Number(getMode(array)).toFixed(3),
+  };
+};

@@ -1,7 +1,7 @@
 import * as statistics from "./statistics";
-import * as datamanipulation from './dataMaipulation'
+import * as datamanipulation from "./dataMaipulation";
 
-const groupDataByClassAndProperty = (wineData, className, propertyName) => {
+export const groupDataByClassAndProperty = (wineData, className, propertyName) => {
   let returnObject = {};
   wineData.forEach((item) => {
     if (returnObject[item[className]]) {
@@ -16,22 +16,17 @@ const groupDataByClassAndProperty = (wineData, className, propertyName) => {
   return returnObject;
 };
 
-const getEvaluatedValues = (groupedData) => {
+export const getEvaluatedValues = (groupedData) => {
   let groupedValues = {};
   for (const key in groupedData) {
-    groupedValues[key] = {
-      Mean: Number(statistics.getMean(groupedData[key])).toFixed(3),
-      Median: Number(statistics.getMedian(groupedData[key])).toFixed(3),
-      Mode: Number(statistics.getMode(groupedData[key])).toFixed(3),
-    };
+    groupedValues[key] = statistics.calculateAll(groupedData[key]);
   }
   return groupedValues;
 };
 
-export const getRequestedValue = (data, className, propertyName) => {
+export const getTableData = (data, className, propertyName) => {
   if (
-    data.length === 0 ||
-    typeof data === undefined ||
+    !data ||
     typeof data !== "object"
   ) {
     throw new Error("Invalid Data type");
@@ -43,3 +38,8 @@ export const getRequestedValue = (data, className, propertyName) => {
     groupDataByClassAndProperty(data, className, propertyName)
   );
 };
+
+export const isEmpty = (obj) => {
+  if (Object.keys(obj).length === 0) return true
+  return false
+}
