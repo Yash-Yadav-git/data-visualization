@@ -8,7 +8,7 @@
 
 ### Gamma Data
 
-![flavaniods-data](./src/images/FlavanoidsData.png)
+![flavaniods-data](./src/images/GammaData.png)
 
 # Getting Started
 
