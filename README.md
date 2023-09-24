@@ -27,8 +27,7 @@ git clone https://github.com/Yash-Yadav-git/data-visualization.git
 ### Prerequiste
 
 [Node.js](https://nodejs.org/) installed
-
-[yarn] (https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable) package manager installed
+[yarn] (https://classic.yarnpkg.com/) package manager installed
 
 ### Install Dependencies
 
