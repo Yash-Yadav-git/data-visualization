@@ -4,11 +4,11 @@
 
 ### Flavaniods Data
 
-![flavaniods-data]('./src/images/Flavanoids Data.png')
+![flavaniods-data](./src/images/Flavanoids Data.png)
 
 ### Gamma Data
 
-![flavaniods-data]('./src/images/Flavanoids Data.png')
+![flavaniods-data](./src/images/Flavanoids Data.png)
 
 # Getting Started
 
